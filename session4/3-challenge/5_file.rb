@@ -15,3 +15,11 @@
 #
 # line_sums('nums.txt')   # =>   808 + 919 + 822 + 876 + 974   # =>   4399
 
+def line_sums(filename)
+  File.readlines(filename).inject 0 do |sum, line|
+    numbers = line.split.map { |number| number.to_i }
+    sum + numbers.max
+  end
+end
+
+rake 4:5

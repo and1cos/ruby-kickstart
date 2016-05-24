@@ -25,4 +25,11 @@
 #   The fourth time the block is passed  26 ,  9 and it returns 35
 #   The fourth time the block is passed  35 , 10 and it returns 45
 #   The method then returns 45
-#
+def passthrough(enumerable, to_pass, &block)
+  enumerable.each do |element|
+    to_pass = block.call(to_pass, element)
+  end
+  to_pass
+end
+
+rake 4:3
